@@ -3,3 +3,4 @@
 ## My second git edit
 
 Copyright 2018 Rogerio Pereira
+Teste Conflict
