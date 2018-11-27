@@ -1,5 +1,5 @@
 # pereira-practice
 
-## My first git edit
+## My second git edit
 
 Copyright 2018 Rogerio Pereira
