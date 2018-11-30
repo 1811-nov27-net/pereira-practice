@@ -53,12 +53,12 @@ namespace LinqAndTest.Tests
         public void LongestShouldREturnLongest(string[] items, string expected)
         {
             //arrange
-            var coll = new MyCollection();
+                var coll = new MyCollection();
 
-            foreach(var item in items)
-            {
-                coll.Add(item);
-            }
+                foreach(var item in items)
+                {
+                    coll.Add(item);
+                }
 
             //act
             var actual = coll.Longest();
