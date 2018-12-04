@@ -1,0 +1,137 @@
+Relational Database
+    Tables with rows and columns
+    not objects with fields/properties
+    
+    Table has set number of columns which have data types and names
+    Can have any number of rows
+
+    We organize tables and related objects into namespaces with "schemas"
+
+    All this things exist inside "database"
+
+RDBMS
+    Relational Database Manager Systems
+    DBA -> People that think about how RDBMS works and how to get it better
+
+SQL
+    Structured Query Language
+
+//Different names of the same thing
+Transact-SQL
+    TSQL
+    SQL Server
+
+
+functional dependency 
+    of Y on X
+    Y is a fact about X
+    In two column, if there is an X in one column must have and Y in other column
+
+e.g
+
+PRODUCT
+        <---------------------
+        <--------               <---------
+    _name_      colors      suplier     phone
+    widget      blue        contoso     555-1234
+    thingybob   blue,red    northwind   555-4321
+    knicknack   red, black  contoso     555-1234
+
+Candidate Key (CK)
+    Minimun set of columns in a table that every other column depends on.
+    Normally is one column, but can have more than one
+    Composite key is when you have two candidate key
+    
+Primary Key (PK)
+    one of the candidate keys choosen to identify the rows int practice
+    Primary key is underlined
+    Is the target of reference to other tables
+
+foreign key (FK)
+    Set of columns wich references another table's primary key
+
+Slow search throught non-atomic values
+    Wich products are black
+
+Update annomaly
+    With redundant data, may update only some of it by mistake
+    If you want to update the phone, you need to update all columns
+
+Deletion annomaly
+    when deleting some data, lose other data enexpectedly
+    If you delete thingybob you will loose northwind's phone number
+
+insertion annomaly
+    can't add some data without some other data
+    You need to add suplier with product
+
+
+NORMALIZATION
+    change data model
+    reduce redundancy
+    improve consistancy
+    improve read performance
+    improve referencial integrity
+    make model more flexile to future changes
+
+(Unnormalized)
+First Normal Form (1NF)
+    Requires:
+        A primary key
+            OR: Every row must be unique
+        Atomic Values and no repeating groups in columns
+
+        PRODUCT
+            _name_      suplier     phone
+            widget      contoso     555-1234
+            thingybob   northwind   555-4321
+            knicknack   contoso     555-1234
+
+        PRODUCT COLOR
+            (foreignKey)
+            _name_          _color_
+            widget          blue
+            thingybob       blue
+            thingybob       red
+            knicknack       red
+            knicknack       black
+Second Normal Form (2NF)
+    Requires:
+        1NF
+        Everything fully depends on all Candidate Keys (CK) 
+            aka no partial dependency on any candidate key
+Third Normal Form (3NF)
+    Requires:
+        2NF
+        No non-candidate key column can depend on any other non-candidate key column
+            no indirect dependecies
+
+        SUPLIER
+               <-----------
+            _name_      phone
+            contoso     555-1234
+            northwind   555-4321
+
+        PRODUCT
+               <-----------
+            _name_(PK)  suplier(FK)
+            widget      contoso
+            thingybob   northwind
+            knicknack   contoso
+
+        PRODUCT COLOR
+               <--------------
+            _name_ (FK)     _color_
+            widget          blue
+            thingybob       blue
+            thingybob       red
+            knicknack       red
+            knicknack       black
+
+
+"The key,                   1FN
+The whole key,              2FN
+and nothing but the key"    3FN
+
+Referential integrity
+    Every value to foreign key must point to existing row in foreign table
