@@ -17,7 +17,7 @@ drop table PS.Pizza;
 --but you should always be explicit because nullable columns are mor unusual
 create table PS.Pizza
 (
-	PizzaID int not null,
+	PizzaID int identity(1,1) not null, --and identity column that starts with 1, and increment by 1
 	Name nvarchar(100) not null,
 	CrustId int not null,
 	ModifiedDate datetime2 not null,
@@ -83,8 +83,10 @@ alter table Ps.Pizza
 
 insert into PS.Crust (CrustId, Name) values
 	(1, 'Plain');
-insert into  Ps.Pizza (PizzaID, Name, CrustId, ModifiedDate) values
-(1, 'standart', 1, '2018-01-01');
+insert into  Ps.Pizza (PizzaID, Name, CrustId, ModifiedDate) values --error, can't insert explicit values to identity column
+(1,'standart', 1, '2018-01-01');
+insert into  Ps.Pizza (Name, CrustId, ModifiedDate) values
+('standart', 1, '2018-01-01');
 
 
 --demo cascade on delete - also deletes the pizza using this crust
@@ -112,3 +114,183 @@ alter table PS.Crust
 alter table Ps.Pizza
 	add internalName as (convert(varchar(20), PizzaID)+ '_' + Name) persisted;
 -- that one (Pesisted) is calculated once and then stored until the row is updated
+
+--aggregate function
+--	count
+--	sum
+--	avg(average)
+--	min
+--	max
+
+-- views are not tables, but they can be treated like read-only tables.
+-- they are like "computed columns" but for a whole table
+
+select * from Ps.Pizza;
+select * from Ps.Crust;
+go
+
+create view PS.ActivePizzas
+as
+select CrustId, Name, InternalName
+from PS.Crust
+where active = 1;
+
+select * from Ps.ActivePizzas;
+delete from Ps.ActivePizzas;
+
+-- user-defined functions
+go
+create function PS.FirstPizzaName()
+returns nvarchar(100)
+as
+begin
+	declare @ret nvarchar(100);
+
+	select top(1) @ret = Name
+	from Ps.Pizza;
+
+	return @ret;
+end
+
+select PS.FirstPizzaName();
+
+--function to return the first crust with the given "active" status
+go
+create function PS.FirstCrustName(@status bit)
+returns nvarchar(100)
+as
+begin
+	declare @ret nvarchar(100);
+
+	select top(1) @ret = Name
+	from Ps.Crust
+	where active = @status;
+
+	return @ret;
+end
+
+select Ps.FirstCrustName(1);
+select Ps.FirstCrustName(0);
+
+-- user-define function can be table-valued (returns value in a whole table)
+go
+create function PS.AllNames()
+returns table
+as
+	return
+	select Name
+	from PS.Pizza
+	union select name from ps.Crust;
+
+select * from PS.AllNames( -- reutrns all pizza and crust names in the DB as a 1-column table
+
+--functions are not allowed to modify the database / insert rows, etc
+-- they are read-only access
+
+-- if we want to modify the database in this encapsulated kind of way,
+--we use "stored procedures"
+
+--functions can be used in SELECT clause and things like that, but procedures can't
+go
+drop procedure PS.ChangePizzaName;
+go
+create procedure PS.ChangePizzaName(@newname nvarchar(100))
+as
+begin
+	begin try
+		if (exists (select * from Ps.Pizza)) -- if there are any rows in the table
+		begin
+			update Ps.Pizza
+			set Name = @newname
+		end
+		else
+		begin
+			raiserror('No Pizzas found', 16, 1)
+		end
+	end try
+	begin catch
+		print 'unable to change pizza names for reason:'
+		print error_message();
+	end catch
+end
+
+execute Ps.ChangePizzaName 'Great Pizza'
+
+--you can use functions in select statements and where clauses etc
+-- but you can't do that with pricedures
+select * from ps.Crust where Name = ps.FirstCrustName();
+
+--transactions
+--a transactions is a set of statements wich follow the ACID properties
+--	ACID
+--		Atomic / Atomocity
+--			A transaction must be all-or-nothing, must not be allowed to partially succeed and then fail.
+--			if there is a failure, we must be returned to the original state
+--		Consistent / Consistency
+--			A transaction is not allowed to violate DB constraints or referencial integrity
+--		Isolated / Isolation
+--			the behavior of one transaction should not interfere with another transaction
+--			each transaction should be able to thik of itself as the only one currently running
+--			we compromise on "isolated" part of ACID heavily in practice
+--		Durable / Durability
+--			Effects/result must not be in "volatile memory", they must be persisted to disk
+--			o some permanent storage
+
+-- in SQL Server, we have four isolation levels to give us flexibility in isolation
+-- why? because full isolation is lower performance (and higher possibility of deadlock)
+--		read_uncommitted, read_committed,(default), repeatable, serializable
+
+-- Problem	
+--
+--		Fixed with:
+--			read_uncommitted
+--
+-- dirty read (see others transactions uncommitted changes
+--			read_committed <- default SQL Server
+--
+-- non-repeatable read (see others's transactions new committed changes)
+--		Fixed with:
+--			repeatable
+--
+-- phantom read (see other's transactions new committed row insertions)
+--		Fixed with:
+--			Serializable
+
+--Eveery SQL  statement by default is already a transaction in itself
+-- and error part-way trhought will result in rolling back anyhing changed up to that point
+
+-- with explicit "Begin Transaction" etc, we can have multi-statement transaction
+
+
+-- Triggers
+
+-- trigger that will update the "modified date" any time someone updates a row
+go
+create trigger PS.TR_Pizza on PS.Pizza
+after update
+as
+begin
+	--in a trigger, you have access to two special tables
+	--called inserted and deleted
+	--(like git, we think of updates as an insert and a delete
+	update Ps.Pizza
+	set ModifiedDate = GETDATE()
+	where PizzaID in (select PizzaID from inserted)
+end
+
+update PS.Pizza
+set name = 'new Pizza'
+
+--triggers also support INSTEAD OF and BEFORE where i PUT AFTER
+
+
+-- multiplicity
+-- one-to-one (1-1)
+--		One item  a columns (unique) in the table of the other
+--		You can have foreign key back and forth, but one must be nullable "one-to-zero-or-one"
+-- one-to-many (e.g. A-to-B) (1-n)
+--		FK from B to A
+-- many-to-many (e.g A-to-B) (n-n)
+--		need junction table
+--			ABId, AId, BId
+--			PK	  FK   FK
