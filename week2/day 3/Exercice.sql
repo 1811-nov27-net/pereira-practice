@@ -1,11 +1,13 @@
 drop table if exists company.employeeDetails;
 drop table if exists company.employee;
 drop table if exists company.department;
-go
+go;
+
 drop schema if exists company;
-go
+go;
+
 create schema company;
-go
+go;
 
 create table company.department
 (
@@ -21,7 +23,7 @@ create table company.employee
 	lastName nvarchar(50) not null,
 	ssn nvarchar(15) null,
 	deptId int null
-)
+);
 
 create table company.employeeDetails
 (
@@ -73,9 +75,11 @@ insert into company.employeeDetails (employeeId, salary, address1, city, state, 
 --Exercices
 
 insert into company.department (name) values
-('Marketing')
+('Marketing');
+
 insert into company.employee (firstName, lastName, deptId) values
 ('Tina', 'Smith', 4);
+
 insert into company.employeeDetails (employeeId, salary) values
 (4, 50000);
 
@@ -93,7 +97,6 @@ from company.department d
 		on e.id = ed.employeeId
 where d.name = 'Marketing'
 group by e.id;
-
 
 select count(*) as marketingEmployeesCount
 from company.department d
