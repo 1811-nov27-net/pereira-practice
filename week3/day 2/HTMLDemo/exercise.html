@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Execise</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+        <script src="main.js"></script>
+        <style>
+            .margin-top
+            {
+                margin-top: 200px;
+            }
+            .center
+            {
+                text-align:center;   
+            }
+            table, td, th
+            {
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <img src='./logo.png'>
+
+        <h1>About</h1>
+        <p>Some text about the website</p>
+        <h2 class='margin-top'>Our Location</h2>
+        <ul>
+            <li>
+                USA
+                <ul>
+                    <li><a href='/new-york'>New York</a></li>
+                    <li><a href='/columbus'>Columbus</a></li>
+                    <li><a href='/austin'>Austin</a></li>
+                    <li><a href='/philly'>Philly</a></li>
+                </ul>
+            </li>
+            <li>
+                World
+                <ul>
+                    <li><a href='/ottawa'>Ottawa</a></li>
+                    <li><a href='/sydney'>Sydney</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>Upcomming Classes</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th class='center'>Location</th>
+                    <th class='center'>Topic</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>New York</td>
+                    <td>JavaScript & Jquery</td>
+                </tr>
+                <tr>
+                    <td>San Fransico</td>
+                    <td>HTML & CSS</td>
+                </tr>
+            </tbody> 
+        </table>
+
+        <h1>Sign Up!</h1>
+        <form action='' method='POST'>
+            <label for='name'>Name</label> <input type='text' name='name' id='name'>
+            <label for='email'>Email</label> <input type='email' name='email' id='email'>
+
+            <select name='location'>
+                <option >New York</option>
+                <option selected>San Fransico</option>
+            </select>
+
+            <fieldset> 
+                <legend>Gender:</legend>
+                <input type='radio' name='gender' id='female' value='Female'> 
+                <label for='female'>Female</label>
+
+                <input type='radio' name='gender' id='male' value='Male'> 
+                <label for='male'>Male</label>
+            </fieldset>
+
+            <label for='experience'>Experience</label><br/>
+            <textarea id='experience' rows='8'></textarea>
+
+            <input type='submit' value='Sign Up'>
+        </form>
+    </body>
+</html>
