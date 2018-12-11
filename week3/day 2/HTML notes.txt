@@ -1,0 +1,17 @@
+HTML/CSS/MVC
+
+HTML
+    Hypertext Markup Language
+        Describes structure of a document
+
+W3CS
+    World Wide Web Consence
+    HTML4
+        ----->
+            XHTML
+                <elements attr="value"></element>
+                Didn't Work
+WHATWG
+    HTML5 
+        Current version
+        living standard
