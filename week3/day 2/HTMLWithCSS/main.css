@@ -1,0 +1,32 @@
+body
+{
+    margin:5px 13px 13px 8px;
+    padding: 50px 900px 10px 10px;
+    border: 5px solid red;
+    overflow: hidden;
+}
+
+h1
+{
+    font-size: 2em;
+}
+
+img 
+{
+    border: solid 8px orange;
+}
+
+div
+{
+
+    border: dashed 8px orange;
+    background-color: yellow;
+    margin-top: 20px;
+    overflow-y: visible;
+}
+
+div span
+{
+    font-weight: bold;
+    text-decoration: underline;
+}

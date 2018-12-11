@@ -1,0 +1,82 @@
+CSS
+    Cascading Style Sheets
+        describes display/positioning of a document
+
+rules:
+    selector { properties: values; ... }
+
+    
+selectors (wich elements for this rule)
+    *
+        all
+    tag
+        with tag "tag"
+            div
+            p
+    .class
+        with class "class"
+            .container
+    #id
+        with id "id"
+            #title_div
+    [attr=val]
+        with attribute "attr" having value "val"
+    [attr~=val]
+        with attribut "attr" containing value "val"
+
+    pseudo-classes
+    <selector>:<pseudo-class>
+        :link (unvisited link)
+        :visited (visited link)
+        :active (currently being clicked on)
+        :focus (currently selected on the page by click or tab)
+        :blur (lose focus)
+        :hover (mouse over)
+
+        :first-chield
+        :last-chield
+        :nth-chield(aN + b)
+        :first-of-type
+        :last-of-type
+        :nth-of-type
+
+    pseudo-elements
+    <selector>::<pseudo-elements>
+    ::before
+    ::after
+    ::selection (highlight)
+
+combinators
+    concatenate for "AND"
+        p.content
+    , for OR
+        div,h1
+    " " (space) for "ancestor descendant"
+        div p
+            p inside a div
+    > for parent chield
+        div > p
+            p that is directly inside a div
+    ~ any sibling
+        p~h1
+            any h1 that share the same parent with p
+    +
+        p+h1
+            immediate next sibling
+
+
+
+3 ways to import CSS
+    external CSS
+        In the head
+        <link rel="stylesheet" href='path.css'>
+    internal CSS
+        in the head
+        <style>
+            p {color: red}
+        </style>
+    inline CSS
+        <p style="color: red;"></p>
+
+
+Box Model
