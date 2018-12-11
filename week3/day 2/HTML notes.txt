@@ -15,3 +15,12 @@ WHATWG
     HTML5 
         Current version
         living standard
+
+
+Global HTML attributes
+class
+    Can have multiple class (n-to-n)
+    <p class='class1 class2'>
+id
+    can have only one element (1-to-1) (unique)
+    <p id='id'>
