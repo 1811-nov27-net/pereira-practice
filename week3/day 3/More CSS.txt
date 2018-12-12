@@ -1,0 +1,47 @@
+Cascadde
+    importance
+        put "important!" after a rule
+        better avoid to do it
+    specificity
+        100 pts for each # selector
+        10 pts for each . selector
+        1 pt for each tag selector
+    source order
+        inline style beats internal beats externals
+
+Inheritance
+    Some properties on an element are inherited from it's parent
+        Have inheritance
+            font-family
+            font-style
+            background-color
+            color
+            display
+                inline
+                block
+                none
+            visibility
+                hidden
+            position
+                static (default)
+                relative
+                    offset element from its regular static position
+                absolute
+                    offset element from the walls of its parent element
+                fixed
+                    fixed element to viewport regardless of scrolling
+        not having inheritance
+            padding
+            margin
+            border
+
+Media Queries
+    Adaptive Web Design
+    Responisve Web Design
+        Bootstrap
+        ZurbFoundation
+
+Reset
+    Reset everything and you need to build css from scratch
+Normalize.css
+    Reset everything and add some reasonable styles
