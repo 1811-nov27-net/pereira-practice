@@ -1,0 +1,30 @@
+MVC Notes
+
+MVC 
+    Design Pattern / Architecture
+        for web application using separation of concerns
+
+ASP.NET MVC
+    Framework in .NET for building web apps using MVC Pattern
+
+Controller
+    Responsible for logic
+    Responsible for routing requests
+    accessing/modifying models
+    Constructing and returning the view
+    .cs class
+View
+    Responsible for display
+    Page structure and display
+        HTML, CSS
+    .cshtml views
+Model
+    Is the data
+    Object Orientaded Data Used by view or sent by a client (Client-Server Architecture)
+    .cs
+
+
+MVC Brings testability
+    Controller can be tested
+    model can be tested
+    view should have no logic, so it doesn't need to be tested
