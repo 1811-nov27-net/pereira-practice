@@ -1,5 +1,6 @@
 ﻿@* razor comments (disappear when page is rendered) *@
 <!-- html comments (do make their way to the client) -->
+
 @* views can be loosely typed or strongly typed. *@
 @* strongly typed views accept one model with the defined type *@
 @* and then they can access its fields in a type-safe way. *@
@@ -7,6 +8,7 @@
 @* a view is strongly typed when it has the @model directive *@
 
 @model IEnumerable<MVCDemo.Models.Movie>
+
 @* @model defines what "Model" will be inside this view *@
 
 @{
@@ -15,44 +17,10 @@
 
 <h1>Index</h1>
 
-@*Razor expressions*@
-@DateTime.Now
-@(1 + 1)
-@*a value, is not a whole statement
-    this will render that value onto the HTML "right hrere" on the page*@
-
-@*"Razor blocks" are statements within braces, not single values
-    These don't inheently render to the page, they execute logic at time of page rendering*@
-
-@* @if, @while, @for, @foreach, familiar c# structures*@
-
 <p>
     @* this is a tag helper *@
     <a asp-action="Create">Create New</a>
 </p>
-
-@*@foreach(var item in Model)
-    {
-        item.Id = -item.Id;
-    }*@
-@*This is really the controller's job to do logic but we can do it here if we must*@
-
-@*There's only on model pew view
-    If you need more than one model, make a new model that contains the two you want.
-    Especially if this new model is only used on the page, we'll often call it a "viewmodel"
-    Wich means, a model that's pretty much just for one view*@
-
-@*
-    Tag Helpers
-        a (anchor) tag helper, for links within the web application
-            attribues
-                asp-action="Action name"
-                asp-controller="Controller name" (default to the same view's controllers')
-                asp-route="the defined name of the convention route to base this URL"
-                asp-route-id="the value of id to go in the URL"
-                asp-route-whatever-route-parameter="the value of that parameter to go in the URL"
-
-*@
 <table class="table">
     <thead>
         <tr>
@@ -71,29 +39,28 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @* output the value of a field as a string *@
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ReleaseDate)
-                </td>
-                <td>
-                    @* HTML helper for creating a link to an action in the web app. *@
-                    @*              link text,  action name,   route parameters*@
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                    @* each controller has one or more action methods, which typically are *@
-                    @* one-to-one with pages from the client's perspective. *@
-                </td>
-            </tr>
-        }
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @* output the value of a field as a string *@
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                @* HTML helper for creating a link to an action in the web app. *@
+                @*              link text,  action name,   route parameters*@
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                @* each controller has one or more action methods, which typically are *@
+                @* one-to-one with pages from the client's perspective. *@
+            </td>
+        </tr>
+}
     </tbody>
 </table>
