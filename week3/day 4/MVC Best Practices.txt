@@ -1,0 +1,33 @@
+Getting data from controller into the view
+    Strongly -typed views (@model)
+        return View(model);
+
+        most used
+
+    loosely-tyed views
+        ViewData, ViewBag
+            ViewData['key] = value;
+            Non-generic, so, we may need cast when accessing
+            Like dictionary mapping object to pbject
+            disappears across requests
+
+            on controller
+                ViewData['bestcustomer'] = customer;
+            on view
+            (cast)bestcustomer.Name
+        ViewBag
+            Different way to access ViewData
+            "dynamic" type
+
+            on controller
+            ViewBag.bestcustomer = customer;
+
+            on view
+            bestcustomer.Name
+        TempData (uses cookies by default)
+            Used just like ViewData except, once inserted it's values stay across requests 
+                untill they're first access
+            
+            TempData.Peek("key")
+                but if you peek it won't be marked for deletion
+

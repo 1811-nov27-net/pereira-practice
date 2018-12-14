@@ -1,0 +1,71 @@
+HTML, CSS, MVC
+
+HTML 5
+    structure
+    new things
+    elements
+    attributes
+    DOCTYPE
+    id
+    class
+    head
+    body
+    forms
+        common elements
+        validation
+CSS 
+    structure
+    rule
+    property
+    cascade
+    inheritance
+    selectors
+        tag
+        id
+        class
+        attr
+        combinators
+        pseudo-classes
+        pseudo-element
+    box model
+        display
+        position
+    common properties
+    media query
+    responsive design
+
+dependency injection
+configuration (json)
+
+MVC pattern
+    ASP.NET MVC
+    request life cycle
+    actions
+        HTTP methods
+    routing
+        convention attr
+    Data Annotations
+    EF code-first
+        migrations
+    view model
+    filter 
+        auth
+        resources
+        exceptions
+        actionsresult
+    common HTML helpers
+    common tag helpers
+    Razor syntax
+    CSHTML
+    strongly-typed view
+    client-side / server side validation
+    model binding
+    query string
+    route params
+    form Data
+    ViewData/Bag
+    TempData
+    Partial View
+
+MVC Testing(mock)
+CRSF (for ait-forgery token)

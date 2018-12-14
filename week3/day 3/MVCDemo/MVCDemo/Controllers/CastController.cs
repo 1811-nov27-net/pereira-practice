@@ -24,8 +24,11 @@ namespace MVCDemo.Controllers
         //Wich controller to construct and wich action method call
 
         //(1) convention routing - defined globally in Startup.cs
+        //(2) Attribute routing - defined with attributes on controllers or actions methods
 
         //route parameter name dafined in my route will wind up here
+
+        [Route("MoviesWithActor/{name}", Name = "cast_attr")]
         public IActionResult Index(string name)
         {
             var movies = Repo.GetAllByCastMember(name).ToList();
