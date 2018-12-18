@@ -1,0 +1,37 @@
+GIT NOTES
+
+GIT
+    Version control system (VCS)
+    source control management tool (SCM)
+
+GIT is distribuited VCS
+    GIT
+
+Centralized VCS
+    Subversion (aka SVN)
+
+Difference 
+
+GIT Areas
+    Working Tree
+        What is presently in the repo folder
+        excepts (/.git)
+        On disk ouside .git
+    Index
+        Stagin area
+        on disk inside .git folder (is human unreadable)
+        preparing a commit
+    Local Repo
+        on disk inside .git folder
+        all the commits in a graph structure
+    Remote Repo
+        Github
+        Bitbucket
+        GitLab
+
+        On some other server
+        another copy of all the commits in a graph
+
+pull command
+    is two commands in fact
+        fetch + merge
