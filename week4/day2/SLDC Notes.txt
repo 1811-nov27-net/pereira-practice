@@ -1,0 +1,81 @@
+SDLC
+    Software Development lifecycle
+        Waterfall
+            Requirements
+            Design
+            Build
+            Test
+            Deploy
+
+            Cons
+                It takes time
+                Inflexible
+            Pros
+                Accountable
+                Security
+        
+        Big Bang
+            Requirements
+            Design, Build, Test (all at same time)
+            deplay
+
+            Pros
+                Good for Prototyping
+                Very Fast, error-prone
+        
+        Iterative Models
+            Spiral
+                Many of waterfalls in succession
+                Take into account client feedback aftera whole iteration
+        
+            Agile
+                Scrum
+                    Break project into "user stories"
+                    Each user story gets designed, built, tested and deployed individually
+
+                    Project board
+                        Backlog
+                            List of needed user stories issues, and general bugs, needed for the project
+                            Sorted by effort points
+                                effort points is based on fibonacci
+                        In Progress
+                        Testing
+                        Done
+
+                    Stakeholder
+
+                    Sprint
+                        2-6 weeks
+                        First plan set of stories for this Sprint, including estimated effort
+                        Several weeks of work
+                        Retrospective meeting / Review
+                    
+                    Sprint Planning
+                    Daily standup meeting
+                        Scrum Master
+                            what was Done
+                            what will be done today
+                            what were difficulties
+
+                    Pros
+                        Capacity
+                        Ammount of Productivity Time/man hours in this sprint
+                        Velocity
+                        How many points of user stories did we actually accomplish in the last sprint
+
+                Kanban
+                    Is similar to Scrum
+                    no sprints
+                    continous evaluation and planning
+                    Maximum number of points allowed in a given column on the kanban board
+                    Become aware of bottlenecks
+                
+                CMMI
+                    Very similar to scrum but with more "burocracy"
+
+Services
+SOA
+REST
+SOAP
+DevOps (CI with Azure)
+Javascript basics + DOM
