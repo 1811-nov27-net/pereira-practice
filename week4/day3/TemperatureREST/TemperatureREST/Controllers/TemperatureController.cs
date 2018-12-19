@@ -12,12 +12,23 @@ namespace TemperatureREST.Controllers
     [ApiController]
     public class TemperatureController : ControllerBase
     {
-        //Really we would use a DB, but for demo we'll use static
-        public static List<Temperature> Data = new List<Temperature>();
+        // really we would use a DB, but for dmeo purposes, a static list.
+        public static List<Temperature> Data = new List<Temperature>
+        {
+            new Temperature
+            {
+                Id = 1,
+                Time = DateTime.Now,
+                Value = 36,
+                Unit = TemperatureUnit.Celsius
+            }
+        };
 
         // GET: api/Temperature
         [HttpGet]
-        //The return type can be just your type or Action<YourTye>, both will work, but latter also allows you to return error messages
+        // the return type can be just your type
+        // or, ActionResult<YourType>, both will work, but the latter also allows you to
+        // return error messages
         public IEnumerable<Temperature> Get()
         {
             return Data;
@@ -27,60 +38,55 @@ namespace TemperatureREST.Controllers
         [HttpGet("{id}", Name = "Get")]
         public ActionResult<Temperature> Get(int id)
         {
-            var result = Data.FirstOrDefault(x => x.Id == id);
-            if(result == null)
+            Temperature result = Data.FirstOrDefault(x => x.Id == id);
+            if (result == null)
             {
-                return NotFound();// is resource doesn't exist, i'll return an eror
+                return NotFound();
             }
-
             return result;
         }
 
         // POST: api/Temperature
-        //for inserting a new resource
+        // for inserting a new resource
         [HttpPost]
         public ActionResult Post([FromBody] Temperature value)
         {
-            //if(!ModelState.IsValid)
+            //if (!ModelState.IsValid)
             //{
-            //    return BadRequest();
+            //    return BadRequest(ModelState);
             //}
-
             Data.Add(value);
             return Ok();
         }
 
         // PUT: api/Temperature/5
-        //Replace an existing resource
+        // replace an existing resource
         [HttpPut("{id}")]
         public ActionResult Put(int id, [FromBody] Temperature value)
         {
             var existing = Data.FirstOrDefault(x => x.Id == id);
             if (existing == null)
             {
-                return NotFound();// is resource doesn't exist, i'll return an eror
+                return NotFound(); // if resource doesn't exist, i'll return an error
             }
-
             Data.Remove(existing);
             value.Id = id;
             Data.Add(value);
-            return Ok(); //Success = Ok()
-
+            return Ok(); // success = Ok()
         }
 
-        // DELETE: api/ApiWithActions/5
-        //Delete is for deleting resources
+        // DELETE: api/Temperature/5
+        // DELETE is for deleting resources
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
             var existing = Data.FirstOrDefault(x => x.Id == id);
             if (existing == null)
             {
-                return NotFound();// is resource doesn't exist, i'll return an eror
+                return NotFound(); // if resource doesn't exist, i'll return an error
             }
-
             Data.Remove(existing);
-            return Ok();
+            return Ok(); // success = Ok()
         }
     }
 }

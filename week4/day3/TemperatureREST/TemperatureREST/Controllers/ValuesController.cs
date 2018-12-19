@@ -1,8 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+using TemperatureREST.Models;
 
 namespace TemperatureREST.Controllers
 {
@@ -14,16 +12,22 @@ namespace TemperatureREST.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            //Whatever we return as an Action Result will be automatically serialized as JSON
-            //When making REST services, we do not use views at all, or any HTML, or any view rendering step - we just respond in JSON format
+            // whatever we return as an ActionResult will be automatically
+            // serialized as JSON.
+            // when making REST services, we do not use views at all, or any HTML,
+            // or any view rendering step - we just respond with the data in JSON format.
             return new string[] { "value1", "value2" };
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<Dictionary<int, Temperature>> Get(int id)
         {
-            return "value";
+            return new Dictionary<int, Temperature>
+            {
+                [1] = new Temperature(),
+                [4] = new Temperature()
+            };
         }
 
         // POST api/values
