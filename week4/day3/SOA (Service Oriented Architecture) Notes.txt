@@ -1,0 +1,45 @@
+Sevice-Oriented Architecture (SOA)
+    Loosely coupled between components
+    Any component can use any tech stack
+    Flexible
+        Use HTTP or any other web protocol to comunicate
+    Strong separation of concerns
+    
+    Has a kind of Contract for a service
+        SOAP
+            Simple Object Acccess protocol
+            Not much used nowadays
+            
+            In .NET there is WCF (Windows Communication Foundation) to create Services
+                In .NET Framework WCF can create SOAP and Consume
+                In .NET Core WCF can only consume Remote SOAP Services
+        REST
+            REpresentational State Transfer
+            More used nowadays
+
+Services
+A - Address
+    Where can I find the service
+    typically URL
+B - Binding
+    What transport protocol will i communicate with it
+C - Contract
+    What slash/behavior can i expect from the service
+
+In SOAP all are defined in WSDL
+    WSDL = Web Service Definition Language
+
+For SOAP
+    Address
+        all goes on WSDL
+    Contract
+        WDSL defines what behavior will assume
+
+For REST
+    Address
+        Based on URL
+    Binding
+        Will be HTTP always
+    Contract
+        Based on URL
+    
