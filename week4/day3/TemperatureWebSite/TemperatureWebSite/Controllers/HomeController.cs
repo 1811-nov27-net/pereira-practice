@@ -12,7 +12,9 @@ namespace TemperatureWebSite.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+
+            return RedirectToAction("Index", "Temperature");
+            //return View();
         }
 
         public IActionResult Privacy()
