@@ -122,3 +122,23 @@ REST
             502 (*)
                 Bad Gateway
                 Some other server needed had an error, not this server
+
+
+Priciples / Constraints
+    Uniform interface
+        HATEOAS (not the main part of REST)
+            Hypermiedia
+            All resources representations should include links to related resources and associated actions
+    Client-Server Architecture
+    Stateless
+        The server should not store state about te client's requests/ongoing transactions, the client must store that
+    Cacheable
+        GET requests
+    Layered System
+        Layers of abstraction
+            DB, other servers
+            Server
+            Client
+    Code on Demand
+        Less common than Hypermiedia
+        Provide codes, that clients can process in their own computer some times
