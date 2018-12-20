@@ -56,7 +56,8 @@ namespace TemperatureREST.Controllers
             //    return BadRequest(ModelState);
             //}
             Data.Add(value);
-            return Ok();
+
+            return CreatedAtAction("Get", new { id = value.Id }, value);
         }
 
         // PUT: api/Temperature/5
@@ -72,7 +73,8 @@ namespace TemperatureREST.Controllers
             Data.Remove(existing);
             value.Id = id;
             Data.Add(value);
-            return Ok(); // success = Ok()
+            //return Ok(); // success = Ok()
+            return NoContent();
         }
 
         // DELETE: api/Temperature/5

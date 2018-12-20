@@ -109,6 +109,9 @@ REST
             406
                 Not acceptable
                 No acceptable media type
+            415 (*)
+                Unsupported media type
+                API doesn't support the media type
             418
                 I'm a Teapot
             500 (*)
