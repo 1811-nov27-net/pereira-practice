@@ -1,0 +1,121 @@
+REST
+    Identify "resources"
+    Don't confuse resources with representation
+    Assign one URL for each resource
+    Use HTTP methods (aka verbs) semantically
+        Get
+            Accessing things without modifying
+            Safe
+                Call and requests should have no effect on externally visible state
+        POST
+            Creating a new resource
+        PUT
+            Replacing and sometimes inserting a resource
+        PATCH
+            Modify the resource without having to send every property
+        DELETE
+            Delete a resource
+
+        Put, patch and delete should follow IDEMPOTENT
+            Repeated identical request have no extra effect on state beyond one request
+    Use HTTP status codes semantically
+        Request
+            HTTP 1.1 GET (url)
+            (headers)
+            Request body if method-appropriate
+        Response
+            (headers)
+            (Status code)
+            (Response body)
+
+        Headers
+            Response
+                Location
+                content-type (media type)
+                content-lenght
+                Encoding
+                Set-Cookie
+            Request
+                If-Modified-Since
+                Accept
+                    Media type
+                Encoding
+                User-Agent
+                Cookie
+        
+        Status Codes Categories
+            100 - 199 
+                Information category
+            200 - 299
+                Sucess
+            300 - 399
+                Redirection
+            400 - 499
+                Client Side Error
+            500 - 599
+                Server Side Error
+
+        Most Common Status Codes
+            100
+                Continue
+                (you sent me the headers now, send the body)
+            200 (*)
+                OK
+                Generic Success
+                Used more for GET requests
+                Ok(), Ok(body), body
+            201 (*)
+                Created
+                Succesfull creation
+                used for POST requests
+                Created(), Created(body), CreatedAtRoute(body, routeName, parameters)
+            204 (*)
+                "No Content"
+                Success and nothing to give
+                used for PUT, DELETE, PATCH)
+                NoContent()
+            301 (*)
+                Moved permanently
+            302 (*)
+                Found
+                Moved Temporary 
+                redirect<Action>(...)
+                redirect<Route>(...)
+                redirect<etc>(...)
+            304
+                Not Modified
+            400 (*)
+                Bad Request
+                Generic client-Error
+                BadRequest()
+            401 (*)
+                Unauthorized
+                Not Authenticated
+                Unauthorized()
+            402
+                Payment Required
+                joke
+            403 (*)
+                Forbidden
+                Not Authorized
+                Forbidden()
+            404 (*)
+                Not Found
+                No such a resource
+                based on URL
+            405 (*)
+                Method not allowed
+                Rource exists, but method not allowed
+            406
+                Not acceptable
+                No acceptable media type
+            418
+                I'm a Teapot
+            500 (*)
+                "Internal Server Error"
+                InternalServerError()
+            501
+                Not implemented
+            502 (*)
+                Bad Gateway
+                Some other server needed had an error, not this server
