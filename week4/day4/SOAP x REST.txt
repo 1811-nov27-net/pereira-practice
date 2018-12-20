@@ -1,0 +1,29 @@
+SOAP X Rest
+
+SOAP
+    HTTP,FTP, TCP, MSMQ, ETC..
+    Stateful or stateless
+    standardized protocol
+    defined by WSDL
+    must regenerate client code when WSDL changes
+    Supports end-to-end encryption
+    Based on XML format
+    RElative difficult to consume with JS
+    Can't cache
+    WCF
+Rest
+    HTTP Only
+    Stateless
+    archtectural style
+    Manually following API Documentation, Uniform interface, HTTP semantics
+        or hypermedia
+        For API Documentation
+            API Description Language
+                like Swagger/Open API
+                API Blueprint
+    automatic backwards-compatibility
+    Encrypting the "pipe" (HTTPS) but not the message
+    Principally JSON or XML or anything else
+    Easy to consume with JS
+    HTTP caching (GET)
+    ASP.NET

@@ -124,7 +124,7 @@ REST
                 Some other server needed had an error, not this server
 
 
-Priciples / Constraints
+Principles / Constraints
     Uniform interface
         HATEOAS (not the main part of REST)
             Hypermiedia
