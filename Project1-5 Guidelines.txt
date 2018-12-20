@@ -1,0 +1,15 @@
+Project 1.5
+
+MVC App (.sln)
+
+Rest Service (.sln)
+Web App Project
+DataAccess (separate)
+Library(separate)
+
+SQL Database
+
+Purpose anything
+
+Not required user autenticantion nor authorization
+But Differente roles
