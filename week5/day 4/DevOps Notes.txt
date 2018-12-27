@@ -1,0 +1,44 @@
+Git Repo
+    Code
+        devs work on code, on their computers
+Package Repo
+    Code Compiled
+    Build Products
+    IT Maintain it, not devs
+Testing Servers
+    QA
+Staging Servers
+    is most closed to production server
+Production Servers
+
+
+Steps on DevOps
+    Continuous integration
+        aka CI
+        Requirements
+            Source Controle
+                Git, branching, etc
+            Automated code Build with notification on failure
+        Not requirement but good to have
+            Automated deployment to dev server if it code complies succesfull
+            Automated running of unit tests and reporting the results
+            Automated static analysis
+                Reporting
+                    SonarQube
+        Build pipeline
+            Fetch dependecies
+                Build
+                    Compile product
+                Test
+                Analyse
+                Package
+                Deploy
+        Tools
+            Jenkins
+            AWS Code Build
+            TravisCI
+            CircleCI
+            Azure DevOps
+                aka VSTS
+                Azure Pipelines
+            
