@@ -43,7 +43,7 @@ x.asdf = true;
 x.erver = 'abc';
 
 //We can access properties of objects with indexing syntax or dot syntax
-console.log(x["asdf"];)
+console.log(x["asdf"]);
 
 //There's syntax for arrays but they are ust objects as well
 x = [1,2,3];
