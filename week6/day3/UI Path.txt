@@ -13,3 +13,25 @@ Vendors for RPA
     BluePrism
         Licensed
     PegaRobotics
+
+Ui Path Training
+TRainer Pushpinder Kaur
+email: kaur.revature@outlook.com
+Time 9:00 - 17:00
+
+Topics of weeks
+    Intro to UiPath
+    UiPath components
+    dataflow
+    varables
+    Datatypes
+    control automation
+    excel & data tables
+    PDFs
+    Exception Handling
+
+Todo
+    See RPA Awareners
+        It's a CTO, CEO
+    Explore Ui Path Studio
+    OpenSpan
