@@ -1,0 +1,15 @@
+RPA
+    Robotic Process automation
+    Process
+    Robots
+        UiPath is called Bots
+
+
+Vendors for RPA
+    UiPath
+        OpenSource
+        Stable version 2018.4
+    Automation anywhere
+    BluePrism
+        Licensed
+    PegaRobotics
