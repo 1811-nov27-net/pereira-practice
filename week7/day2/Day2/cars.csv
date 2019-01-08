@@ -1,0 +1,5 @@
+name,cartype,model,year,cost,mileage
+car1,type1,model1,2015,5000,160000
+car1,type1,model2,2018,10000,80000
+car1,type2,model1,2010,6000,55000
+car1,type2,model2,2018,4000,180000
