@@ -1,0 +1,23 @@
+Ui automation
+
+record
+    basic
+    desktop
+    web
+    citrix (native citrix)
+        VM
+        VNC
+        Citrix
+    image
+
+avdvance UI automation
+    selectors
+    UI Explorer
+    Attach to Live Element
+    Simulation
+        default
+        windows
+        **
+data scraping
+    reading data from data table
+    
