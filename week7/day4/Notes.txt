@@ -1,0 +1,25 @@
+XAML - Extensible Application Mark-uo Language
+
+Silverlight
+WPF
+
+Two ways of recording
+    Automatic REcording
+    Manual recording
+
+We use screen scrapping when data is unstructured
+
+actions
+    user interactions
+        click
+        input
+        type
+    input actions
+        click
+        type
+        select
+        etc
+    output actions
+        GetText
+        Copy
+        scraping
