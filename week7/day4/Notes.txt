@@ -23,3 +23,8 @@ actions
         GetText
         Copy
         scraping
+
+
+Wildcards
+* -> all
+? -> only 1 caracter

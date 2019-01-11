@@ -1,0 +1,24 @@
+Selectors
+    full Selector
+        full part of that element
+        needs a parent element
+            window
+            application
+    partial selector
+        doesn't need to specify container element
+
+customized selectors
+    wildcard
+        * -> many characters
+        ? -> one characters
+    idx
+
+Reliable selectors
+    Achor base selectors
+        use anchor elements
+        "attach" one selector to another elements
+        foreground
+            application must be selected
+    Relative selectors
+        background
+            application must be selected
